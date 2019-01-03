@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule, Route } from '@angular/router'
 import { AuthGuard } from './auth.guard';
 import { GuardadoGuard } from './guardado.guard';
+import { FormsModule } from "@angular/forms"
 
 const rutas: Route[] = [
 	{ path: "", component: LoginComponent },
@@ -38,7 +39,8 @@ const rutas: Route[] = [
 	],
 	imports: [
 		BrowserModule,
-		RouterModule.forRoot(rutas)
+		RouterModule.forRoot(rutas),
+		FormsModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

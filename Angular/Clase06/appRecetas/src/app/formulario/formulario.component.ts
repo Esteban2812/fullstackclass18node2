@@ -33,18 +33,16 @@ export class FormularioComponent implements OnInit, ICanDeactivate {
 
 	imagen: string
 
-	agregarReceta(titulo: string, ingredientes: string, preparacion: string, tiempo: number) {
-
-		const receta: IReceta = { titulo, ingredientes, preparacion, tiempo, foto: this.imagen, visualizar: false }
-
-		this.recetaModificada = receta
+	agregarReceta() {
+		this.recetaModificada.foto = this.imagen
+		this.recetaModificada.visualizar = false
 
 		//this.onAgregar.emit(receta)
-		this.recetaService.agregarReceta(receta)
+		this.recetaService.agregarReceta(this.recetaModificada)
 		//this.logService.escribir("Nueva receta", "error")
 
 		this.imagen = undefined
-		//this.router.navigate(["recetas"])
+		this.router.navigate(["recetas"])
 	}
 
 	seleccionarImagen(evt) {
