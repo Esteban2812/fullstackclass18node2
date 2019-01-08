@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    const prA1 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('ambulancia1')
+      }, 3000)
+    })
+
+    const prA2 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        //resolve('ambulancia2')
+        reject("Ocurrió un error")
+      }, 2000)
+    })
+
+    const prA3 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('ambulancia3')
+      }, 7000)
+    })
+
+    Promise.race([prA1, prA2, prA3])
+      .then(
+        data => console.log(data)
+      )
+      .catch(
+        error => console.log(error)
+      )
+
+
+
+  </script>
+
+</body>
+
+</html>
