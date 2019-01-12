@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+          <button class="btn btn-success" (click)="cargarDatos()">Cargar datos</button>
+          <button class="btn btn-warning" (click)="cargarParcial()">Cargar parcial</button>  
+      </div>
+      
+      <form class="col-8" [formGroup]="grupo" (ngSubmit)="grabar()">
+        <div class="form-group">
+          <input type="text" name="nombre" class="form-control" placeholder="Nombre Completo" formControlName="nombre">
+          <span *ngIf="grupo.get('nombre').hasError('required') && grupo.get('nombre').touched">El nombre es requerido</span>
+        </div>
+        <div class="form-group">
+          <input type="text" name="correo" class="form-control" placeholder="Correo" formControlName="correo">
+          <span *ngIf="grupo.get('correo').hasError('required') && grupo.get('correo').touched">El correo es requerido</span>
+          <span *ngIf="grupo.get('correo').hasError('email') && grupo.get('correo').touched">El formato no es correcto</span>
+          <span *ngIf="grupo.get('correo').hasError('correoInvalido') && grupo.get('correo').touched">Solo correos de la empresa</span>
+        </div>
+        <div class="form-group">
+          <input type="password" name="contrasena" class="form-control" placeholder="Contraseña" formControlName="contrasena">
+        </div>
+        <div class="form-group">
+          <input type="password" name="confirmacion" class="form-control" placeholder="Confirmación de contraseña" formControlName="confirmacion">
+        </div>        
+        <div class="form-group">
+          <button class="btn btn-primary btn-block" [disabled]="!grupo.valid">Grabar</button>
+        </div>
+      </form>
+    </div>
+  </div>
