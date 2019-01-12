@@ -9,6 +9,8 @@ export class AppComponent {
   fecha = new Date()
   nombre = "Fullstack"
 
+  textoABuscar = "asesino"
+
   libros = [
     {autor: "Patrick Suskind", titulo: "El Perfume", anno:2000, sinopsis: "Narra la historia de un asesino que mataba mujeres para robarles su esencia y crear perfumes"},
     {autor: "José María Arguedas", titulo: "El Sexo", anno: 1980, sinopsis: "Novela basada en un transexual llamado 'Rosita'. Narra sus vivencias dentro de la cárcel llamada 'El Sexto'"},

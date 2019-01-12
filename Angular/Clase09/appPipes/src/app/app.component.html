@@ -4,7 +4,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-8 justify-content-center">
+    <div class="col-10 justify-content-center">
       <table class="table table-bordered">
         <thead class="thead-dark">
           <tr>
@@ -12,13 +12,15 @@
             <th>Título</th>
             <th>Año</th>
             <th>Sinopsis</th>
+            <th>Sinopsis2</th>
           </tr>
         </thead>
-        <tr *ngFor="let libro of libros">
+        <tr *ngFor="let libro of libros | filtro:textoABuscar">
           <td>{{libro.autor}}</td>
           <td>{{libro.titulo | uppercase}}</td>
           <td>{{libro.anno}}</td>
           <td>{{libro.sinopsis | reducidor:100:"ver más" }}</td>
+          <td>{{libro.sinopsis | reducidorPalabras:20:"..." }}</td>
         </tr>
       </table>
     </div>
