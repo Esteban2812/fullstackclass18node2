@@ -1,0 +1,26 @@
+<p>
+  {{fecha | date:"dd/MMMM/yyyy" | uppercase }}
+</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6 justify-content-center">
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Autor</th>
+            <th>Título</th>
+            <th>Año</th>
+            <th>Sinopsis</th>
+          </tr>
+        </thead>
+        <tr *ngFor="let libro of libros">
+          <td>{{libro.autor}}</td>
+          <td>{{libro.titulo}}</td>
+          <td>{{libro.anno}}</td>
+          <td>{{libro.sinopsis}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
