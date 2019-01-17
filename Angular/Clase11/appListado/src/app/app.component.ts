@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Subject, merge, interval, of } from 'rxjs';
-import { switchMap, startWith} from "rxjs/operators"
+import { switchMap, startWith, pluck} from "rxjs/operators"
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-root',
@@ -16,6 +18,9 @@ export class AppComponent {
   ordenamiento: string = "nombre"
   textoABuscar: string = ""
   resultados: Array<any> = []
+  numPaginas: Array<number> = []
+
+  constructor(private http: HttpClient) {}
 
   cambioPagina() {
     //console.log("página", this.pagina)
@@ -36,7 +41,10 @@ export class AppComponent {
       .pipe(
         startWith({}),
         switchMap(()=> {
-          const personas = [
+
+          return this.http.post(`http://personas.tibajodemanda.com/users/${this.pagina-1}`, {orden: this.ordenamiento})
+
+          /*const personas = [
             {nombre: "Sergio", sexo: "Hombre"},
             {nombre: "Kelly", sexo: "Mujer"},
             {nombre: "Marjorie", sexo: "Mujer"},
@@ -57,12 +65,20 @@ export class AppComponent {
               })
               .sort((a, b) =>  a[this.ordenamiento]>b[this.ordenamiento] ? 1 : -1)
               .slice((this.pagina-1)*4, (this.pagina-1)*4 + 4)
-          )
+          )*/
 
         })
       )
       .subscribe(
-        data => this.resultados = data
+        (data:any) => {
+          const totalRegistros = +data.total
+          const cantidadPaginas = Math.ceil(totalRegistros/6) 
+          this.numPaginas = []
+          for(let ind=0; ind<cantidadPaginas; ind++) {
+            this.numPaginas.push(ind+1)
+          }
+          this.resultados = data.results
+        }
       )
 
       //this.obsBuscar.next()

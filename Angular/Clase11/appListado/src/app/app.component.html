@@ -4,11 +4,9 @@
       <div class="row justify-content-between">
       
         <select [(ngModel)]="pagina" (change)="cambioPagina()">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
+          <option *ngFor="let page of numPaginas" [value]="page">
+            {{page}}
+          </option>
         </select>
         <input type="text" placeholder="Buscador" [(ngModel)]="textoABuscar" (input)="cambioBuscador()">
         <select [(ngModel)]="ordenamiento" (change)="cambioOrdenamiento()">
