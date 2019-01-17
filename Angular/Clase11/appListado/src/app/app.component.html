@@ -10,6 +10,7 @@
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
+        <input type="text" placeholder="Buscador" [(ngModel)]="textoABuscar" (input)="cambioBuscador()">
         <select [(ngModel)]="ordenamiento" (change)="cambioOrdenamiento()">
           <option value="nombre">Nombre</option>
           <option value="sexo">Sexo</option>

@@ -10,9 +10,11 @@ import { switchMap} from "rxjs/operators"
 export class AppComponent {
   obsPagina: Subject<number> = new Subject<number>()
   obsOrdenamiento: Subject<string> = new Subject<string>()
+  obsBuscar: Subject<string> = new Subject<string>()
 
   pagina: number = 1
   ordenamiento: string = "nombre"
+  textoABuscar: string = ""
   resultados: Array<any> = []
 
   cambioPagina() {
@@ -25,8 +27,12 @@ export class AppComponent {
     this.obsOrdenamiento.next(this.ordenamiento)
   }
 
+  cambioBuscador() {
+    this.obsBuscar.next(this.textoABuscar)
+  }
+
   ngOnInit(){
-    merge(this.obsPagina, this.obsOrdenamiento)
+    merge(this.obsPagina, this.obsOrdenamiento, this.obsBuscar)
       .pipe(
         switchMap(()=> {
           const personas = [
@@ -43,6 +49,11 @@ export class AppComponent {
 
           return of(
             personas
+              .filter(persona => {
+                if(this.textoABuscar.trim()=="") return true
+                
+                return persona.nombre.toLowerCase().indexOf(this.textoABuscar.toLowerCase()) > -1 ? true : false
+              })
               .sort((a, b) =>  a[this.ordenamiento]>b[this.ordenamiento] ? 1 : -1)
               .slice((this.pagina-1)*4, (this.pagina-1)*4 + 4)
           )
