@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from "@angular/common/http"
+import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http"
 import { AppComponent } from './app.component';
+import { AppInterceptor } from './app.interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -13,7 +14,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

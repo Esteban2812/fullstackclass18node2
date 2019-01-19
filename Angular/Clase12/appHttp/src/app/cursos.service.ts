@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ICurso } from './cursos.interface';
 
@@ -11,7 +11,16 @@ export class CursosService {
   constructor(private http: HttpClient) { }
 
   listar(): Observable<ICurso[]>{
+/*     const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+
+    const headers: HttpHeaders = new HttpHeaders({
+      authorization: `bearer ${accessToken}`
+    }) */
+
+    /* return this.http.get<ICurso[]>("http://cursos.tibajodemanda.com/cursos", {headers}) */
+
     return this.http.get<ICurso[]>("http://cursos.tibajodemanda.com/cursos")
+
   }
 
   insertar(curso: ICurso): Observable<any> {
