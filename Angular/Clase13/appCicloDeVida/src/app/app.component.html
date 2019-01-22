@@ -1,0 +1,16 @@
+<app-usuario [nombreUsuario]="usuario" [datos]="datosUsuario"></app-usuario>
+<button (click)="cambiar()">Cambiar nombre</button>
+<button (click)="cambiarSexo()">Cambiar sexo</button>
+<p>
+  Hora actual: {{Hora | date: "hh:mm:ss"}}
+</p>
+<app-estado-usuario>
+  <span #mensaje>Usuario logueado</span>
+</app-estado-usuario>
+
+<ul>
+  <li><a routerLink="">C01</a></li>
+  <li><a routerLink="/c2">C02</a></li>
+</ul>
+
+<router-outlet></router-outlet>
