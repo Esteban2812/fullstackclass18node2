@@ -4,13 +4,13 @@ import { ListadoLibrosComponent } from './listado-libros/listado-libros.componen
 import { EdicionLibroComponent } from './edicion-libro/edicion-libro.component';
 
 const routes: Routes = [
-  {path: "libros", children:[
+  {path: "", children:[
     {path: "", component: ListadoLibrosComponent},
     {path: "edicion", component: EdicionLibroComponent}
   ]}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)]
+  imports: [RouterModule.forChild(routes)]
 })
 export class LibrosRoutingModule { }

@@ -4,14 +4,14 @@ import { ListadoAutoresComponent } from './listado-autores/listado-autores.compo
 import { EdicionAutorComponent } from './edicion-autor/edicion-autor.component';
 
 const routes: Routes = [
-  {path: "autores", children: [
+  {path: "", children: [
     {path: "", component: ListadoAutoresComponent},
     {path: "edicion", component: EdicionAutorComponent}
   ]},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class AutoresRoutingModule { }

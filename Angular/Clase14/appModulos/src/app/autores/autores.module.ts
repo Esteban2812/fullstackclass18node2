@@ -6,6 +6,7 @@ import { ListadoAutoresComponent } from './listado-autores/listado-autores.compo
 import {
     EdicionAutorComponent
 } from './edicion-autor/edicion-autor.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {
   ],
   imports: [
     CommonModule,
-    AutoresRoutingModule
+    AutoresRoutingModule,
+    FormsModule
   ]
 })
 export class AutoresModule { }

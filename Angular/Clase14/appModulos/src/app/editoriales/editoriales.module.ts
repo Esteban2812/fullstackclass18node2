@@ -6,6 +6,7 @@ import {
     ListadoEditorialesComponent
 } from './listado-editoriales/listado-editoriales.component';
 import { EdicionEditorialComponent } from './edicion-editorial/edicion-editorial.component';
+import { CompartidoModule } from '../compartido/compartido.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { EdicionEditorialComponent } from './edicion-editorial/edicion-editorial
   ],
   imports: [
     CommonModule,
-    EditorialesRoutingModule
+    EditorialesRoutingModule,
+    CompartidoModule
   ]
 })
 export class EditorialesModule { }
