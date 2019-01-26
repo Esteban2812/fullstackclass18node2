@@ -1,0 +1,18 @@
+<mat-sidenav-container>
+
+  <!-- <mat-sidenav [opened]="mostrar"> -->
+  <mat-sidenav #menu>
+    Aqui va el menú móvil
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="menu.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+  </mat-sidenav-content>
+
+
+
+</mat-sidenav-container>
