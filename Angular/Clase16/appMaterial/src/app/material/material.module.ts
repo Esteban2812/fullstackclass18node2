@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MatSidenavModule, MatToolbarModule, MatButtonModule, MatIconModule, MatListModule, MatMenuModule, MatCardModule, MatFormFieldModule, MatInputModule} from "@angular/material"
+import {MatSidenavModule, MatToolbarModule, MatButtonModule, MatIconModule, MatListModule, MatMenuModule, MatCardModule, MatFormFieldModule, MatInputModule, MatDialogModule} from "@angular/material"
 import {FlexLayoutModule} from "@angular/flex-layout"
 
 @NgModule({
@@ -16,7 +16,8 @@ import {FlexLayoutModule} from "@angular/flex-layout"
     MatMenuModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
   ],
   exports: [
     MatSidenavModule,
@@ -28,7 +29,8 @@ import {FlexLayoutModule} from "@angular/flex-layout"
     MatMenuModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule { }

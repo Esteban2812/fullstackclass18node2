@@ -3,15 +3,15 @@
   <!-- <mat-sidenav [opened]="mostrar"> -->
   <mat-sidenav #menu>
     <mat-nav-list>
-      <a routerLink="/" mat-list-item>
+      <a routerLink="/" mat-list-item (click)="menu.close()">
         <mat-icon>home</mat-icon>
         <span>Home</span>
       </a>
-      <a routerLink="/item1" mat-list-item>
+      <a routerLink="/menu1" mat-list-item (click)="menu.close()">
         <mat-icon>account_circle</mat-icon>
         <span>Menu 1</span>
       </a>
-      <a routerLink="/item2" mat-list-item>
+      <a routerLink="/menu2" mat-list-item (click)="menu.close()">
         <mat-icon>face</mat-icon>
         <span>Menu 2</span>
       </a>

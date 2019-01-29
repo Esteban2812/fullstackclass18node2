@@ -3,15 +3,18 @@
     <h4>Login</h4>
   </mat-card-title>
   <mat-card-content>
-    <form fxLayout="column">
+    <form fxLayout="column" [formGroup]="grupo">
       <mat-form-field hintLabel="Solo correos de la empresa">
-        <input type="text" name="correo" placeholder="Correo" matInput required>
+        <input type="text" name="correo" placeholder="Correo" matInput required formControlName="correo">
+        <mat-error *ngIf="grupo.get('correo').hasError('required')">El correo es requerido</mat-error>
+        <mat-error *ngIf="grupo.get('correo').hasError('email')">Debe tener formato de correo</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input type="password" name="password" placeholder="Password" matInput required>
+        <input type="password" name="password" placeholder="Password" matInput required formControlName="password">
         <mat-hint>Mínimo 8 caracteres</mat-hint>
+        <mat-error>El password es requerido</mat-error>
       </mat-form-field>
-      <div fxLayout fxLayoutAlign="center" fxLayoutGap="10px">
+      <div fxLayout fxLayout.lt-sm="column" fxLayoutAlign="center center" fxLayoutGap="10px">
         <button mat-raised-button color="primary">Ingresar</button>
         <button mat-flat-button color="accent">Olvidé contraseña</button>
         <button mat-stroked-button color="accent">Registrar</button>

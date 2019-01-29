@@ -9,6 +9,8 @@ import { Item1Component } from './item1/item1.component';
 import { Item2Component } from './item2/item2.component';
 
 import { RouterModule, Route } from "@angular/router"
+import { ReactiveFormsModule } from '@angular/forms';
+import { EdicionComponent } from './edicion/edicion.component';
 
 const rutas: Route[] = [
   {path: "", component: HomeComponent},
@@ -21,15 +23,18 @@ const rutas: Route[] = [
     AppComponent,
     HomeComponent,
     Item1Component,
-    Item2Component
+    Item2Component,
+    EdicionComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    RouterModule.forRoot(rutas)
+    RouterModule.forRoot(rutas),
+    ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [EdicionComponent]
 })
 export class AppModule { }
