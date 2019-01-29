@@ -1,0 +1,21 @@
+<mat-card fxFlex="500px" fxFlex.xs="320px">
+  <mat-card-title>
+    <h4>Login</h4>
+  </mat-card-title>
+  <mat-card-content>
+    <form fxLayout="column">
+      <mat-form-field hintLabel="Solo correos de la empresa">
+        <input type="text" name="correo" placeholder="Correo" matInput required>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" name="password" placeholder="Password" matInput required>
+        <mat-hint>Mínimo 8 caracteres</mat-hint>
+      </mat-form-field>
+      <div fxLayout fxLayoutAlign="center" fxLayoutGap="10px">
+        <button mat-raised-button color="primary">Ingresar</button>
+        <button mat-flat-button color="accent">Olvidé contraseña</button>
+        <button mat-stroked-button color="accent">Registrar</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
