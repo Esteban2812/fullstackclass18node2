@@ -1,0 +1,29 @@
+<div mat-dialog-title>
+  <mat-toolbar color="primary">
+    <h3>{{titulo}}</h3>
+  </mat-toolbar>
+</div>
+<div mat-dialog-content>
+  <form [formGroup]="grupo" fxLayout="column">
+    <mat-form-field>
+      <input type="text" name="nombre" placeholder="Nombre" formControlName="nombre" matInput required>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" name="apellido" formControlName="apellido" placeholder="Apellido" matInput required>
+    </mat-form-field>
+    <div fxLayout fxLayoutAlign="space-between">
+      <button mat-flat-button [mat-dialog-close]="grupo.getRawValue()" color="primary">
+        <mat-icon>edit</mat-icon>
+        Grabar
+      </button>
+      <button mat-flat-button mat-dialog-close color="accent">
+        <mat-icon>close</mat-icon>
+        Cerrar
+      </button>
+      <button mat-flat-button color="warn" (click)="cerrar()">Cerrar por programación</button>
+    </div>
+  </form>
+
+
+
+</div>

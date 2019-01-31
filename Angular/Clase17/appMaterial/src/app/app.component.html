@@ -1,0 +1,68 @@
+<mat-sidenav-container>
+
+  <!-- <mat-sidenav [opened]="mostrar"> -->
+  <mat-sidenav #menu>
+    <mat-nav-list>
+      <a routerLink="/" mat-list-item (click)="menu.close()">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </a>
+      <a routerLink="/menu1" mat-list-item (click)="menu.close()">
+        <mat-icon>account_circle</mat-icon>
+        <span>Menu 1</span>
+      </a>
+      <a routerLink="/menu2" mat-list-item (click)="menu.close()">
+        <mat-icon>face</mat-icon>
+        <span>Menu 2</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between">
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <button mat-icon-button (click)="menu.toggle()" fxHide.gt-xs>
+          <mat-icon>menu</mat-icon>
+        </button>
+        <h1>Sistema</h1>
+      </div>
+      <div fxLayout="row">
+        <ul fxLayout="row" fxLayoutAlign="center center" fxHide.lt-sm>
+          <li>
+            <a routerLink="/">Home</a>
+          </li>
+          <li>
+            <a routerLink="/menu1">Menu 1</a>
+          </li>
+          <li>
+            <a routerLink="/menu2">Menu 2</a>
+          </li>
+        </ul>
+        <div fxLayout fxLayoutAlign="center center">
+          <button mat-button [matMenuTriggerFor]="menuContextual">
+            <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" alt="">
+            Juan Pérez
+            <mat-icon>arrow_drop_down</mat-icon>
+          </button>
+          <mat-menu #menuContextual>
+            <button mat-menu-item>
+              <mat-icon>face</mat-icon>
+              Perfil
+            </button>
+            <button mat-menu-item>
+              <mat-icon>lock</mat-icon>
+              Cerrar sesión
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+    </mat-toolbar>
+    <div class="contenedor-componentes" fxLayout fxLayoutAlign="center">
+        <router-outlet></router-outlet>
+    </div>
+    
+  </mat-sidenav-content>
+
+
+
+</mat-sidenav-container>

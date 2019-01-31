@@ -1,0 +1,12 @@
+.contenedor-dialog mat-dialog-container {
+  padding:0px !important
+}
+
+.contenedor-dialog {
+  width: 400px;
+}
+
+.contenedor-dialog .mat-dialog-content {
+  margin:0 !important;
+  padding: 24px;
+}
